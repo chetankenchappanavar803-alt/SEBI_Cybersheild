@@ -1,4 +1,6 @@
-/* ============================================================
+import pathlib
+
+css = """/* ============================================================
    SEBI CyberShield - Ultra-Premium Cyber UI v2.0
    Design: Deep Space + Electric Cyber + Glassmorphism
    ============================================================ */
@@ -1810,3 +1812,7 @@ button { font-family: var(--font-sans); }
   }
   html { scroll-behavior: auto; }
 }
+"""
+
+pathlib.Path('style.css').write_text(css, encoding='utf-8')
+print(f'Written {len(css)} chars to style.css')
