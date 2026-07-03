@@ -10,7 +10,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..900;1,14..32,300..900&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
@@ -21,6 +21,7 @@
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
   <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-3" aria-hidden="true"></div>
 
   <!-- ── NAVBAR ─────────────────────────────────────────────────────────── -->
   <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
@@ -70,7 +71,7 @@
   <section class="hero" id="hero" aria-labelledby="hero-heading">
     <div class="hero-content">
       <div class="hero-badge" aria-label="SEBI TechSprint 2025 project">
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="#00F5FF" stroke-width="1.5"/><circle cx="6" cy="6" r="2" fill="#00F5FF"/></svg>
+        <span class="hero-badge-dot" aria-hidden="true"></span>
         SEBI TechSprint 2025 — Cybersecurity Track
       </div>
 
@@ -121,14 +122,24 @@
 
     <div class="hero-visual" aria-hidden="true">
       <div class="threat-orb">
-        <div class="threat-ring ring-1"></div>
+        <div class="threat-ring ring-1">
+          <span class="ring-dot ring-dot-1"></span>
+          <span class="ring-dot ring-dot-2"></span>
+          <span class="ring-dot ring-dot-3"></span>
+          <span class="ring-dot ring-dot-4"></span>
+        </div>
         <div class="threat-ring ring-2"></div>
         <div class="threat-ring ring-3"></div>
+        <div class="threat-ring ring-4"></div>
         <div class="threat-core">
-          <svg width="48" height="48" viewBox="0 0 40 40" fill="none">
+          <svg width="52" height="52" viewBox="0 0 40 40" fill="none">
             <path d="M20 2L36 9V21C36 29.8 29.2 38 20 40C10.8 38 4 29.8 4 21V9L20 2Z" fill="url(#hero-shield)" stroke="url(#hero-stroke)" stroke-width="1"/>
             <circle cx="20" cy="20" r="6" stroke="#00F5FF" stroke-width="1.5" fill="none"/>
             <circle cx="20" cy="20" r="2" fill="#00F5FF"/>
+            <line x1="20" y1="8" x2="20" y2="14" stroke="#00F5FF" stroke-width="1" opacity="0.6"/>
+            <line x1="20" y1="26" x2="20" y2="32" stroke="#00F5FF" stroke-width="1" opacity="0.6"/>
+            <line x1="8" y1="20" x2="14" y2="20" stroke="#00F5FF" stroke-width="1" opacity="0.6"/>
+            <line x1="26" y1="20" x2="32" y2="20" stroke="#00F5FF" stroke-width="1" opacity="0.6"/>
             <defs>
               <linearGradient id="hero-shield" x1="4" y1="2" x2="36" y2="40" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stop-color="#1a2744"/>
@@ -142,10 +153,10 @@
           </svg>
         </div>
         <!-- Floating threat tags -->
-        <div class="threat-tag tag-1">Phishing</div>
-        <div class="threat-tag tag-2">Pump & Dump</div>
-        <div class="threat-tag tag-3">Fake SEBI</div>
-        <div class="threat-tag tag-4">Crypto Fraud</div>
+        <div class="threat-tag tag-1"><span class="threat-tag-dot"></span>Phishing</div>
+        <div class="threat-tag tag-2"><span class="threat-tag-dot"></span>Pump &amp; Dump</div>
+        <div class="threat-tag tag-3"><span class="threat-tag-dot"></span>Fake SEBI</div>
+        <div class="threat-tag tag-4"><span class="threat-tag-dot"></span>Crypto Fraud</div>
       </div>
     </div>
   </section>
@@ -326,10 +337,12 @@
         <div class="results-loading" id="results-loading" hidden>
           <div class="loading-spinner" aria-hidden="true">
             <div class="spinner-ring"></div>
+            <div class="spinner-ring-2"></div>
             <div class="spinner-pulse"></div>
           </div>
           <p class="loading-text" id="loading-text">Analyzing with Gemini AI…</p>
           <p class="loading-sub">This may take 5–15 seconds</p>
+          <div class="loading-bar" aria-hidden="true"><div class="loading-bar-fill"></div></div>
         </div>
 
         <!-- Results content -->
@@ -424,18 +437,24 @@
       </div>
 
       <div class="chat-wrapper">
-        <!-- Chat Model Selector -->
+        <!-- Chat Toolbar -->
         <div class="chat-toolbar">
-          <div class="chat-model-select">
-            <label class="form-label" for="chat-model">Model:</label>
-            <select class="form-select form-select-sm" id="chat-model">
-              <option value="flash">Gemini 2.5 Flash</option>
-              <option value="pro">Gemini 2.5 Pro</option>
-            </select>
+          <div class="chat-toolbar-left">
+            <div class="chat-ai-indicator">
+              <span class="chat-ai-dot" aria-hidden="true"></span>
+              CyberShield AI
+            </div>
+            <div class="chat-model-select">
+              <label class="form-label" for="chat-model">Model:</label>
+              <select class="form-select form-select-sm" id="chat-model">
+                <option value="flash">Gemini 2.5 Flash</option>
+                <option value="pro">Gemini 2.5 Pro</option>
+              </select>
+            </div>
           </div>
           <button class="btn btn-ghost btn-sm" id="clear-chat-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-            Clear Chat
+            Clear
           </button>
         </div>
 
@@ -474,7 +493,7 @@
               placeholder="Ask about financial scams, SEBI rules, investment safety…"
               aria-label="Chat message input"></textarea>
             <button class="chat-send-btn" id="chat-send-btn" aria-label="Send message" disabled>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
             </button>
           </div>
           <p class="chat-disclaimer">AI responses are for awareness only. Always verify with official SEBI sources.</p>
@@ -583,6 +602,9 @@
       </p>
     </div>
   </footer>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toast-container" aria-live="polite" aria-label="Notifications"></div>
 
   <!-- Scripts -->
   <script src="app.js"></script>
