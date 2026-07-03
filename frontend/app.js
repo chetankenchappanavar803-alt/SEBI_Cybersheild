@@ -6,7 +6,7 @@
 // ── Config ──────────────────────────────────────────────────────────────────
 const API_BASE = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:8000'
-  : ''; // Same origin in production
+  : 'https://sebicybersheild-production.up.railway.app';
 
 // ── State ────────────────────────────────────────────────────────────────────
 let lastScanResult = null;
